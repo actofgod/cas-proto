@@ -7,5 +7,6 @@ php -S localhost:8000 -t public
 * test:test
 * demo:demo
 
-Настройки в [конфиге](config/config.php)
-В качестве хранилища используются файлы в папке [var/db](var/db)
+Настройки в [конфиге](config/config.php).
+
+В качестве хранилища используются файлы в папке [var/db](var/db).
