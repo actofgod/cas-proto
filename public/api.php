@@ -43,19 +43,20 @@ switch ($request['action']) {
         $reward = $container->getUserRewardService()->getCurrentReward();
         if (null !== $reward) {
             $container->getRewardService()->claim($reward);
-            $success = true;
+            $container->getUserRewardService()->removeReward($reward);
+            echo '{"success":true}';
         } else {
-            $success = false;
+            echo json_encode(['success' => false, 'error' => 'Reward not exists']);
         }
-        return json_encode(['success' => $success]);
         break;
     case 'decline':
         $reward = $container->getUserRewardService()->getCurrentReward();
         if (null !== $reward) {
             $container->getRewardService()->decline($reward);
-            $success = true;
+            $container->getUserRewardService()->removeReward($reward);
+            echo '{"success":true}';
         } else {
-            $success = false;
+            echo json_encode(['success' => false, 'error' => 'Reward not exists']);
         }
         return json_encode(['success' => $success]);
         break;

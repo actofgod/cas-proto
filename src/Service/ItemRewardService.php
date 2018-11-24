@@ -83,7 +83,12 @@ class ItemRewardService extends AbstractService implements RewardStrategyInterfa
             }
             flock($fd, LOCK_EX);
             fseek($fd, 0, SEEK_END);
-            fwrite($fd, implode(',', [$_SESSION['username'], $reward->getItem()->getName()]) . PHP_EOL);
+            $line = [
+                $_SESSION['user'],
+                $reward->getItem()->getId(),
+                $reward->getItem()->getName(),
+            ];
+            fwrite($fd, implode(',', $line) . PHP_EOL);
         }
     }
 

@@ -42,7 +42,7 @@ class RewardService extends AbstractService
     /**
      * @return array|null
      */
-    public function rotate(): ?array
+    public function rotate(): ?UserReward
     {
         $retriesCount = 0;
         do {

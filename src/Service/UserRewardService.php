@@ -53,4 +53,12 @@ class UserRewardService extends AbstractService
         ];
         return $this->reward;
     }
+
+    /**
+     * @param UserReward $reward
+     */
+    public function removeReward(UserReward $reward)
+    {
+        unset($_SESSION['reward']);
+    }
 }
