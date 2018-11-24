@@ -19,18 +19,12 @@ class Item
     private $name;
 
     /**
-     * @var int
-     */
-    private $quantity;
-
-    /**
      * @param array $data
      */
     public function __construct(array $data)
     {
         $this->id = $data['id'];
         $this->name = $data['name'] ?? ('Item#' . $data['id']);
-        $this->quantity = $data['quantity'] ?? 0;
     }
 
     /**
@@ -47,13 +41,5 @@ class Item
     public function getName(): string
     {
         return $this->name;
-    }
-
-    /**
-     * @return int
-     */
-    public function getQuantity(): int
-    {
-        return $this->quantity;
     }
 }
